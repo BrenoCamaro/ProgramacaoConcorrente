@@ -12,4 +12,17 @@ class Conta {
         saldo += valor;
         System.out.println(titular + " recebeu R$ " + valor + ". Saldo atual: R$ " + saldo);
     }
+
+    public synchronized boolean sacar(double valor) {
+        if (saldo >= valor) {
+            saldo -= valor;
+            System.out.println(titular + " gastou R$ " + valor + ". Saldo atual: R$ " + saldo);
+            return true;
+        }
+        return false;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
 }
