@@ -18,5 +18,21 @@ public class Loja {
         funcionarios.add(funcionario);
     }
 
+    public void receberPagamento(double valor) {
+        conta.depositar(valor);
+        verificarSalario();
+    }
 
+    private void verificarSalario() {
+        if (conta.getSaldo() >= salarioFuncionarios) {
+            for (Funcionario funcionario : funcionarios) {
+                funcionario.receberSalario(salarioFuncionarios / funcionarios.size());
+            }
+            conta.sacar(salarioFuncionarios);
+        }
+    }
+
+    public Conta getConta() {
+        return conta;
+    }
 }
