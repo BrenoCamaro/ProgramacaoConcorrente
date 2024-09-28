@@ -3,6 +3,9 @@ import java.util.List;
 import java.util.Random;
 
 class Conta {
+    private String titular;
+    private double saldo;
+
     public Conta(String titular, double saldoInicial) {
         this.titular = titular;
         this.saldo = saldoInicial;
